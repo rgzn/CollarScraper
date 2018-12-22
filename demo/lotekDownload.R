@@ -1,7 +1,14 @@
 require(CollarScraper)
 
+# Set these variable in your script:
+username = ""
+password = ""
+
+# Otherwise, load from a file:
+# load("./demo/login_info.Rda")
+
 # Create scraper:
-myLotek = lotekScraper$new(username = "user", password = "password", headless = TRUE )
+myLotek = lotekScraper$new(username = username, password = password, headless = TRUE )
 
 # Start browser:
 myLotek$start()
