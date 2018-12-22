@@ -1,0 +1,30 @@
+Package: CollarScraper
+Type: Package
+Title: GPS collar downloads via webscraping
+Version: 0.1.0
+Author: Jon Weissman
+Maintainer: Jon Weissman <jonathan.weissman@wildlife.ca.gov>
+Description: This package is to aid in the automation of GPS collar data downloads.
+    It includes web scrapers for major collar manufacturers and interfaces for
+    data users to access those scrapers. 
+    Currently supported collar vendors:
+    - Lotek
+License: GNU GPLv3 b  
+Encoding: UTF-8
+LazyData: true
+Depends:
+    R (>= 3.0.0)
+Imports:
+    R6,
+    wdman,
+    tidyverse,
+    RSelenium,
+    rvest (>= 0.3.2),
+    jsonlite(>= 1.5),
+    xml2
+VignetteBuilder: knitr
+Collate:
+    'CollarScraper.R'
+    'seleniumScraper.R'
+    'lotekScraper.R'
+RoxygenNote: 6.1.1
