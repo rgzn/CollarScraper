@@ -1,7 +1,7 @@
 require(CollarScraper)
 
 # Create scraper:
-myLotek = lotekScraper$new(username = "changeme", password = "*****", headless = TRUE )
+myLotek = lotekScraper$new(username = "user", password = "password", headless = TRUE )
 
 # Start browser:
 myLotek$start()
@@ -16,11 +16,17 @@ collarsDF = myLotek$get_collar_df()
 end = Sys.Date()
 begin = end - 365
 
+# download a single collar:
+collar1 = collarsDF[1,]
+myFilename = myLotek$dl_collar(collar_id = collar1$ID,
+                               start_date = begin,
+                               end_date = end,
+                               format = "Text Listing")
+
+
 # download each collar and return a list of downloaded files
-downloadedFiles = lapply(collarsDF$ID, function(x) myLotek$dl_collar(
-  collar_id = x,
-  start_date = begin,
-  end_date = end))
+#    use default arguments for dl_collar method
+downloadedFiles = lapply(collarsDF$ID, function(x) myLotek$dl_collar(x))
 
 # stop browser:
 myLotek$close()
