@@ -249,12 +249,13 @@ lotekScraper <- R6::R6Class(
     },
 
     select_collar_by_id = function(collar_id) {
+      id = as.numeric(collar_id)
       collar_df = self$get_collar_df()
-      if ( !collar_id %in% collar_df$ID) {
+      if ( !id %in% collar_df$ID) {
         # no such collar id
         return(FALSE)
       }
-      collar_idx = match(collar_id, collar_df$ID)
+      collar_idx = match(id, collar_df$ID)
       collar_element = self$collar_element_list[[collar_idx]]
       self$select_collar_element(collar_element)
     },
