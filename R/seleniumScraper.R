@@ -1,6 +1,15 @@
-# Superclass of webdriver-based scrapers
-# This wraps an RSelenium::remoteDriver object
-# Specific instances for individual websites should inherit from this
+#' CLASS seleniumScraper
+#'
+#' seleniumScraper Class is a Superclass of webdriver-based scrapers
+#'    This wraps an RSelenium::remoteDriver object
+#'    Specific instances for individual websites should inherit from this
+#'
+#' @export seleniumScraper
+#' @exportClass seleniumScraper
+#' @aliases seleniumScraper
+#'
+
+
 seleniumScraper <- R6::R6Class(
   "seleniumScraper",
   public = list(

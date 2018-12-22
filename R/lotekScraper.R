@@ -1,6 +1,20 @@
+#' CLASS lotekScraper
+#'
+#' lotekScraper Class
+#'
+#'
 #' @importFrom magrittr "%>%"
 #' @importFrom dplyr "first"
 #' @importFrom dplyr "last"
+#'
+#'
+#'
+#' @include seleniumScraper.R
+#' @export lotekScraper
+#' @exportClass lotekScraper
+#' @aliases lotekScraper
+#' @examples
+#'
 
 lotekScraper <- R6::R6Class(
   "lotekScraper",
