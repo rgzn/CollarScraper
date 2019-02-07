@@ -1,0 +1,11 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+demo/login_info.Rda
+packrat/lib*/
+
+*TXT
+*txt
+*swp
+
