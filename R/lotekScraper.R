@@ -57,15 +57,16 @@ lotekScraper <- R6::R6Class(
     # is_logged_in()
     # Check if browser is logged in
     is_logged_in = function() {
+      logged_on = FALSE
       welcome_elements =
         self$driver$findElements(using="id", self$username_welcome_element_id)
-      if(length(welcome_elements) == 0) {
-        return(FALSE)
-      } else if (welcome_elements[[1]] != self$username) {
-        return(FALSE)
-      } else {
-        return(TRUE)
+      if(length(welcome_elements) != 0) {
+        current_user = welcome_elements[[1]]$getElementAttribute("innerHTML")
+        if (current_user == self$username) {
+          logged_on = TRUE
+        }
       }
+      return(logged_on)
     },
 
     # logout()
