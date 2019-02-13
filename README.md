@@ -6,7 +6,7 @@ This is a package of GPS collar data downloaders. Currently this is just for Lot
 ## Requirements: 
 
   + [R](https://www.r-project.org/) >= 3.0
-  + [Google Chrome](https://www.google.com/chrome/) 71.0 
+  + [Google Chrome](https://www.google.com/chrome/) >= 71.0 
   + [chromedriver](https://sites.google.com/a/chromium.org/chromedriver/) >= 2.45
 
 ## Install 
