@@ -4,6 +4,8 @@
 .Ruserdata
 demo/login_info.Rda
 packrat/lib*/
+data/
+demo/data/
 
 *TXT
 *txt
