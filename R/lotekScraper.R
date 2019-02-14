@@ -241,12 +241,25 @@ lotekScraper <- R6::R6Class(
       self$driver$executeScript(
         dloptions_alter_js,
         args = list(dloptions_element))
+      return(self$get_dl_format() == dl_format )
     },
+
     get_dl_format = function() {
       dloptions_element = self$driver$findElement(
         using="id",
         self$dloptions_element_id)
       return(dloptions_element$getElementAttribute("value")[[1]])
+    },
+
+    get_dl_formats = function() {
+      dloptions_element = self$driver$findElement(
+        using="id",
+        self$dloptions_element_id)
+      option_elements =
+        dloptions_element$findChildElements(using="tag name","option")
+      options = lapply(option_elements,
+                       function(x) {x$getElementAttribute("value")[[1]] })
+      return(options)
     },
 
     select_collar_by_id = function(collar_id) {
