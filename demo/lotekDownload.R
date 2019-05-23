@@ -10,11 +10,15 @@ password = ""
 download_dir = paste0(getwd(),"/","tmp")
 
 # Create scraper:
+<<<<<<< HEAD
 myLotek = lotekScraper$new(username = username,
                            password = password,
                            headless = FALSE,
                            download_path = download_dir,
                            driver_version = "74.0.3729.6")
+=======
+myLotek = lotekScraper$new(username = username, password = password, headless = FALSE, driver_version = "74.0.3729.6")
+>>>>>>> fa65da8a963c44e48ae3e33396febaf6265b9a45
 
 # Start browser:
 myLotek$start()
