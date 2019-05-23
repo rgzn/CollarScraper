@@ -42,7 +42,7 @@ seleniumScraper <- R6::R6Class(
       download_path = getwd(),
       browser_port = 4567L,
       timeout_ms = 10000,
-      driver_version = "latest",
+      driver_version = "latest"
     ){
 
       self$username = username
