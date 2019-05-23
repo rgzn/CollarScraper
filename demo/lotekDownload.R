@@ -8,7 +8,7 @@ password = ""
 # load("./demo/login_info.Rda")
 
 # Create scraper:
-myLotek = lotekScraper$new(username = username, password = password, headless = TRUE )
+myLotek = lotekScraper$new(username = username, password = password, headless = FALSE, driver_version = "74.0.3729.6")
 
 # Start browser:
 myLotek$start()

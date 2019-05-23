@@ -9,6 +9,7 @@
 #' @aliases seleniumScraper
 #'
 
+CHROME_VERSION = "74.0.3729.6"
 
 seleniumScraper <- R6::R6Class(
   "seleniumScraper",
@@ -39,7 +40,8 @@ seleniumScraper <- R6::R6Class(
       headless = TRUE,
       download_path = getwd(),
       browser_port = 4567L,
-      timeout_ms = 10000
+      timeout_ms = 10000,
+      driver_version = "latest",
     ){
 
       self$username = username
@@ -48,6 +50,7 @@ seleniumScraper <- R6::R6Class(
       self$download_path = download_path
       self$browser_port = browser_port
       self$timeout_ms = timeout_ms
+      self$driver_version = driver_version
 
       if (self$headless) {
         self$extraCapabilities$chromeOptions$args = c(self$extraCapabilities$chromeOptions$args,
@@ -67,7 +70,9 @@ seleniumScraper <- R6::R6Class(
     },
 
     start = function(){
-      self$browser = wdman::chrome(port = self$browser_port)
+      self$browser = wdman::chrome(
+        port = self$browser_port,
+        version = self$driver_version)
       self$driver$open()
       server_URL = self$driver$serverURL
       session_info_id = self$driver$sessionInfo[["id"]]
@@ -81,9 +86,11 @@ seleniumScraper <- R6::R6Class(
             downloadPath = self$download_path)))
       self$driver$setImplicitWaitTimeout(milliseconds = self$timeout_ms)
     },
+
     stop = function(){
       self$driver$close()
     },
+
     close = function(){
       self$driver$close()
       self$browser$stop()
